@@ -733,10 +733,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fpc/result@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-0.0.2.tgz#1cae3a784bb93838eff669ce87d84f90b57adfb4"
-  integrity sha512-TPUuvIlySGIZcUTof/TvabOW03h0SuR2WmlZmxjVy5Xf4LqKYLn67Uc33W70majoViokf6TvnlLTEWKzr7bMdg==
+"@fpc/result@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-0.0.3.tgz#d55add0af941e37161579619a803defbf279382e"
+  integrity sha512-UErfJpAKHE3IwxcobWUwFDXRm1reSBGjFvwWCWsItvL4100viqsTKYgWRzOIFyrwzqa7ctgaUdsSQi1zHlIIVw==
   dependencies:
     "@fpc/types" "^0.0.6"
 
