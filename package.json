@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "@fpc/result": "^0.0.4",
+    "@fpc/result": "^0.0.5",
     "@fpc/types": "^0.0.6"
   },
   "devDependencies": {
