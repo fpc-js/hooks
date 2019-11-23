@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useUpdatingState } from '../src';
 
+/* eslint-disable-next-line max-statements */
 test('useUpdatingState merges object properties', () => {
   const { result } = renderHook(() => useUpdatingState({ p1: 1 }));
 

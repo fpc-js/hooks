@@ -1,12 +1,13 @@
 {
   "name": "@fpc/hooks",
   "description": "Useful hooks for react apps",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
     "functional",
     "hooks",
+    "react",
     "fpc",
     "fp"
   ],
@@ -15,6 +16,22 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ."
+  },
+  "jest": {
+    "transform": {
+      "^.*\\.js$": "<rootDir>/jest-transform.cjs"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!@fpc)"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
   },
   "repository": {
     "type": "git",
@@ -42,19 +59,18 @@
     ]
   },
   "dependencies": {
-    "@fpc/result": "^0.0.4",
-    "@fpc/types": "^0.0.6"
+    "@fpc/result": "^0.0.5",
+    "@fpc/types": "^0.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.7.1",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.0",
-    "@babel/runtime": "^7.7.2",
+    "@babel/runtime": "^7.7.4",
     "@testing-library/react-hooks": "^3.2.1",
-    "babel-jest": "^24.9.0",
     "coveralls": "^3.0.7",
-    "eslint": "^6.3.0",
+    "eslint": "^6.7.0",
     "eslint-plugin-react": "^7.16.0",
     "jest": "^24.9.0",
     "react": "^16.8.0",
