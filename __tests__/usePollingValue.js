@@ -24,3 +24,18 @@ test('usePollingValue returns an update callback', () => {
   const [value] = result.current;
   expect(value).toBe(1);
 });
+
+test('usePollingValue calls its function with given argument', () => {
+  const fn = jest.fn();
+
+  const { result } = renderHook(() => usePollingValue(fn, 1));
+  const [, update] = result.current;
+
+  expect(fn.mock.calls.length).toBe(1);
+  expect(fn.mock.calls[0]).toEqual([1]);
+
+  act(() => update(2));
+
+  expect(fn.mock.calls.length).toBe(2);
+  expect(fn.mock.calls[1]).toEqual([2]);
+});

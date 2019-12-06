@@ -1,7 +1,7 @@
 {
   "name": "@fpc/hooks",
   "description": "Useful hooks for react apps",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
