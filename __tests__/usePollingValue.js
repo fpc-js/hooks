@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useFnMemo } from '../src';
+import { usePollingValue } from '../src';
 
 const uniqid = () => {
   let id = 0;
@@ -8,15 +8,15 @@ const uniqid = () => {
   return () => id++;
 };
 
-test('useFnMemo calls its function immediately', () => {
-  const { result } = renderHook(() => useFnMemo(uniqid()));
+test('usePollingValue calls its function immediately', () => {
+  const { result } = renderHook(() => usePollingValue(uniqid()));
   const [value] = result.current;
 
   expect(value).toBe(0);
 });
 
-test('useFnMemo returns an update callback', () => {
-  const { result } = renderHook(() => useFnMemo(uniqid()));
+test('usePollingValue returns an update callback', () => {
+  const { result } = renderHook(() => usePollingValue(uniqid()));
   const [, update] = result.current;
 
   act(update);

@@ -847,10 +847,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fpc/result@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-0.0.5.tgz#66423aaeb51f922d063f3f2bc724e442751fd208"
-  integrity sha512-GgAsHv6pfRsc41Al+lInIEewl8rdxgb5H0j15Sx0FfAhf9HvkyqtdR8NJRwGKqwS42VHNZ1uBG3aWN81dyVAAg==
+"@fpc/result@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-0.0.6.tgz#51106ebff79905a23ddcfdf6b2b2ddcb26eafc00"
+  integrity sha512-l8vv6cA7jI5iaMvngEo/sZhF3ZpRKYsgi0fhqwYBszlRIHapdFCdQToe8gv/KGOIIKk2OImlJvCKeGKF2nQXpA==
   dependencies:
     "@fpc/types" "^0.0.7"
 
