@@ -31,3 +31,15 @@ test('useMergingState accepts an update function', () => {
   expect(v2.p1).toBe(undefined);
   expect(v2.p2).toBe(2);
 });
+
+test('useMergingState accepts a function as initial argument', () => {
+  const { result } = renderHook(() => useMergingState(() => ({ p1: 1 })));
+
+  const [v1, update] = result.current;
+  expect(v1.p1).toBe(1);
+
+  act(() => update(state => ({ p2: state.p1 + 1 })));
+  const [v2] = result.current;
+  expect(v2.p1).toBe(undefined);
+  expect(v2.p2).toBe(2);
+});

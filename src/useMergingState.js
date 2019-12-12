@@ -7,5 +7,7 @@ const reducer = (state, update) => (
     : { ...state, ...update }
 );
 
-export const useMergingState = obj =>
-  useReducer(reducer, obj, expectObject);
+const init = initialArg => reducer(undefined, initialArg);
+
+export const useMergingState = initialArg =>
+  useReducer(reducer, initialArg, init);
