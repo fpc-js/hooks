@@ -1,14 +1,14 @@
 import { useRef, useReducer } from 'react';
 import { expectFunction } from '@fpc/types';
 
-const poll = ({ ref, arg }) => ({ value: ref.current.call(null, arg), ref });
-const reducer = ({ ref }, arg) => poll({ ref, arg });
+const evaluate = ref => ({ value: ref.current.call(null), ref });
+const reducer = ({ ref }) => evaluate(ref);
 
-export const usePollingValue = (fn, arg) => {
+export const usePollingValue = fn => {
   const ref = useRef();
   ref.current = expectFunction(fn);
 
-  const [state, update] = useReducer(reducer, { ref, arg }, poll);
+  const [state, update] = useReducer(reducer, ref, evaluate);
 
   return [state.value, update];
 };
