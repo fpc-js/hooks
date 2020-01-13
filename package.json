@@ -1,7 +1,7 @@
 {
   "name": "@fpc/hooks",
   "description": "Useful hooks for react apps",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
@@ -59,23 +59,23 @@
     ]
   },
   "dependencies": {
-    "@fpc/result": "^0.0.6",
+    "@fpc/result": "^1.0.0",
     "@fpc/types": "^0.0.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/runtime": "^7.7.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/runtime": "^7.9.2",
     "@testing-library/react-hooks": "^3.2.1",
     "babel-jest-modules": "^0.0.2",
-    "coveralls": "^3.0.7",
-    "eslint": "^6.7.0",
-    "eslint-plugin-react": "^7.16.0",
-    "jest": "^24.9.0",
-    "react": "^16.8.0",
-    "react-test-renderer": "^16.8.0"
+    "coveralls": "^3.0.11",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^25.1.0",
+    "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1"
   },
   "peerDependencies": {
     "react": ">=16.8"
