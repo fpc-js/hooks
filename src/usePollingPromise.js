@@ -3,10 +3,9 @@ import { usePromise } from './usePromise';
 
 export const usePollingPromise = (fn, defaultValue) => {
   const [promise, update] = usePollingValue(fn);
-  const result = usePromise(promise);
-  const [value, error] = result;
+  const [value, error, state] = usePromise(promise);
 
-  return result.length > 0
-    ? [value, error, update]
-    : [defaultValue, undefined, update];
+  return state === 'pending'
+    ? [defaultValue, undefined, update, state]
+    : [value, error, update, state];
 };

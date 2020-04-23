@@ -1,21 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Result, Ok } from '@fpc/result';
 
-const init = () => {
-  const pendingRes = Ok();
-  pendingRes.length = 0;
+const init = () => [undefined, undefined, 'pending'];
 
-  return pendingRes;
-};
-
-export const usePromise = (prom, inputs = [prom]) => {
+export const usePromise = (promise, inputs = [promise]) => {
   const [result, setResult] = useState(init);
-  const asyncResult = Result.promise(prom);
 
   useEffect(() => {
     let cancelled = false;
 
-    asyncResult.then(res => cancelled || setResult(res));
+    promise.then(
+      res => cancelled || setResult([res, undefined, 'resolved']),
+      rej => cancelled || setResult([undefined, rej, 'rejected'])
+    );
 
     /* eslint-disable-next-line no-return-assign */
     return () => cancelled = true;
