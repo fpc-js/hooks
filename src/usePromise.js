@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { expectPromise } from '@fpc/types';
 
 const init = () => [undefined, undefined, 'pending'];
 
@@ -8,7 +9,7 @@ export const usePromise = (promise, inputs = [promise]) => {
   useEffect(() => {
     let cancelled = false;
 
-    promise.then(
+    expectPromise(promise).then(
       res => cancelled || setResult([res, undefined, 'resolved']),
       rej => cancelled || setResult([undefined, rej, 'rejected'])
     );
