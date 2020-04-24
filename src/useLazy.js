@@ -1,11 +1,12 @@
 import { useReducer } from 'react';
 import { expectFunction } from '@fpc/types';
 
-const reducer = (_, fn) => fn();
+const init = value => ({ value });
+const reducer = ({ fn }) => ({ value: fn() });
 
 export const useLazy = (fn, defaultValue) => {
-  const [value, dispatch] = useReducer(reducer, defaultValue);
-  expectFunction(fn);
+  const [state, dispatch] = useReducer(reducer, defaultValue, init);
+  state.fn = expectFunction(fn);
 
-  return [value, () => dispatch(fn)];
+  return [state.value, dispatch];
 };

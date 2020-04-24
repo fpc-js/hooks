@@ -1,12 +1,12 @@
 import { useReducer } from 'react';
 import { expectFunction } from '@fpc/types';
 
-const init = fn => fn();
-const reducer = (_, fn) => fn();
+const init = fn => ({ value: fn() });
+const reducer = ({ fn }) => ({ value: fn() });
 
 export const usePollingValue = fn => {
-  const [value, dispatch] = useReducer(reducer, fn, init);
-  expectFunction(fn);
+  const [state, dispatch] = useReducer(reducer, fn, init);
+  state.fn = expectFunction(fn);
 
-  return [value, () => dispatch(fn)];
+  return [state.value, dispatch];
 };
