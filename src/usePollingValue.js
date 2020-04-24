@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { expectFunction } from '@fpc/types';
-import { useLazy } from './useLazy';
+
+const init = fn => fn();
+const reducer = (_, fn) => fn();
 
 export const usePollingValue = fn => {
-  const [initialValue] = useState(expectFunction(fn));
+  const [value, dispatch] = useReducer(reducer, fn, init);
+  expectFunction(fn);
 
-  return useLazy(fn, initialValue);
+  return [value, () => dispatch(fn)];
 };
