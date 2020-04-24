@@ -1,13 +1,24 @@
 import { useState, useEffect } from 'react';
-import { expectPromise } from '@fpc/types';
+import { isFunction, expectPromise } from '@fpc/types';
 
 const init = () => [undefined, undefined, 'pending'];
 
-export const usePromise = (promise, inputs = [promise]) => {
+export const usePromise = (task, deps) => {
   const [result, setResult] = useState(init);
+  let useEffectDeps = deps;
+
+  if (deps == null) {
+    useEffectDeps = isFunction(task) ? [] : [task];
+  }
 
   useEffect(() => {
+    const promise = isFunction(task) ? task() : task;
+    const [,, state] = result;
     let cancelled = false;
+
+    if (state !== 'pending') {
+      setResult(init);
+    }
 
     expectPromise(promise).then(
       res => cancelled || setResult([res, undefined, 'resolved']),
@@ -16,7 +27,7 @@ export const usePromise = (promise, inputs = [promise]) => {
 
     /* eslint-disable-next-line no-return-assign */
     return () => cancelled = true;
-  }, inputs);
+  }, useEffectDeps);
 
   return result;
 };

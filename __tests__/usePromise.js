@@ -1,33 +1,48 @@
 import { renderHook, act } from '@testing-library/react-hooks';
+import { deferred } from '@fpc/utils';
 import { usePromise } from '../src';
 
-/* global Promise */
 /* eslint-disable no-return-assign */
+/* eslint max-statements: ["warn", 15] */
 
-test('usePromise returns [value]', async () => {
-  let resolve;
-  const promise = new Promise(res => resolve = res);
+test('usePromise returns [value, undefined, "resolved"]', async () => {
+  const { promise, resolve } = deferred();
+  const { result, waitForNextUpdate } = renderHook(() =>
+    usePromise(promise)
+  );
 
-  const { result, waitForNextUpdate } = renderHook(() => usePromise(promise));
+  expect(result.current).toEqual([undefined, undefined, 'pending']);
 
   act(() => resolve('ok'));
-
   await waitForNextUpdate();
-  const [val, err] = result.current;
-  expect(val).toBe('ok');
-  expect(err).toBe(undefined);
+
+  expect(result.current).toEqual(['ok', undefined, 'resolved']);
 });
 
-test('usePromise returns [_, error]', async () => {
-  let reject;
-  const promise = new Promise((_, rej) => reject = rej);
+test('usePromise returns [undefined, error, "rejected"]', async () => {
+  const { promise, reject } = deferred();
+  const { result, waitForNextUpdate } = renderHook(() =>
+    usePromise(promise)
+  );
 
-  const { result, waitForNextUpdate } = renderHook(() => usePromise(promise));
+  expect(result.current).toEqual([undefined, undefined, 'pending']);
 
   act(() => reject('err'));
-
   await waitForNextUpdate();
-  const [val, err] = result.current;
-  expect(val).toBe(undefined);
-  expect(err).toBe('err');
+
+  expect(result.current).toEqual([undefined, 'err', 'rejected']);
+});
+
+test('usePromise accepts a function that gives a promise', async () => {
+  const { promise, resolve } = deferred();
+  const { result, waitForNextUpdate } = renderHook(() =>
+    usePromise(() => promise)
+  );
+
+  expect(result.current).toEqual([undefined, undefined, 'pending']);
+
+  act(() => resolve('ok'));
+  await waitForNextUpdate();
+
+  expect(result.current).toEqual(['ok', undefined, 'resolved']);
 });
