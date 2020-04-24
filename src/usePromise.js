@@ -16,8 +16,8 @@ export const usePromise = (task, deps = isFunction(task) ? [] : [task]) => {
     }
 
     expectPromise(promise).then(
-      res => cancelled || setResult([res, undefined, 'resolved']),
-      rej => cancelled || setResult([undefined, rej, 'rejected'])
+      val => cancelled || setResult([val, undefined, 'resolved']),
+      err => cancelled || setResult([undefined, err, 'rejected'])
     );
 
     /* eslint-disable-next-line no-return-assign */
