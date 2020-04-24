@@ -3,13 +3,8 @@ import { isFunction, expectPromise } from '@fpc/types';
 
 const init = () => [undefined, undefined, 'pending'];
 
-export const usePromise = (task, deps) => {
+export const usePromise = (task, deps = isFunction(task) ? [] : [task]) => {
   const [result, setResult] = useState(init);
-  let useEffectDeps = deps;
-
-  if (deps == null) {
-    useEffectDeps = isFunction(task) ? [] : [task];
-  }
 
   useEffect(() => {
     const promise = isFunction(task) ? task() : task;
@@ -27,7 +22,7 @@ export const usePromise = (task, deps) => {
 
     /* eslint-disable-next-line no-return-assign */
     return () => cancelled = true;
-  }, useEffectDeps);
+  }, deps);
 
   return result;
 };
