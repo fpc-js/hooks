@@ -6,6 +6,6 @@ export const usePollingPromise = (fn, defaultValue) => {
   const [value, error, state] = usePromise(promise);
 
   return state === 'pending'
-    ? [defaultValue, undefined, update, state]
-    : [value, error, update, state];
+    ? [defaultValue, undefined, state, update]
+    : [value, error, state, update];
 };
