@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { isFunction, expectPromise } from '@fpc/types';
 
-const init = () => [undefined, undefined, 'pending'];
+const pending = () => [undefined, undefined, 'pending'];
 
 export const usePromise = (task, deps = isFunction(task) ? [] : [task]) => {
-  const [result, setResult] = useState(init);
+  const [result, setResult] = useState(pending);
 
   useEffect(() => {
     const promise = isFunction(task) ? task() : task;
@@ -12,7 +12,7 @@ export const usePromise = (task, deps = isFunction(task) ? [] : [task]) => {
     let cancelled = false;
 
     if (state !== 'pending') {
-      setResult(init);
+      setResult(pending);
     }
 
     expectPromise(promise).then(
