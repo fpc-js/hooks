@@ -1,9 +1,9 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useMergingState } from '../src';
+import { useObjectState } from '../src';
 
 /* eslint-disable-next-line max-statements */
-test('useMergingState merges object properties', () => {
-  const { result } = renderHook(() => useMergingState({ p1: 1 }));
+test('useObjectState merges object properties', () => {
+  const { result } = renderHook(() => useObjectState({ p1: 1 }));
 
   const [v1, update] = result.current;
   expect(v1.p1).toBe(1);
@@ -20,8 +20,8 @@ test('useMergingState merges object properties', () => {
   expect(v3.p3).toBe(3);
 });
 
-test('useMergingState accepts an update function', () => {
-  const { result } = renderHook(() => useMergingState({ p1: 1 }));
+test('useObjectState accepts an update function', () => {
+  const { result } = renderHook(() => useObjectState({ p1: 1 }));
 
   const [v1, update] = result.current;
   expect(v1.p1).toBe(1);
@@ -32,8 +32,8 @@ test('useMergingState accepts an update function', () => {
   expect(v2.p2).toBe(2);
 });
 
-test('useMergingState accepts a function as initial argument', () => {
-  const { result } = renderHook(() => useMergingState(() => ({ p1: 1 })));
+test('useObjectState accepts a function as initial argument', () => {
+  const { result } = renderHook(() => useObjectState(() => ({ p1: 1 })));
 
   const [v1, update] = result.current;
   expect(v1.p1).toBe(1);
