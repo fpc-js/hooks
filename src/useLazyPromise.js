@@ -4,7 +4,7 @@ import { expectFunction, expectPromise } from '@fpc/types';
 const idle = () => [undefined, undefined, 'idle'];
 const pending = () => [undefined, undefined, 'pending'];
 
-export const useLazyPromise = (fn, defaultValue) => {
+export const useLazyPromise = (fn, initialValue) => {
   const [result, setResult] = useState(idle);
   const [value, error, state] = result;
 
@@ -24,6 +24,6 @@ export const useLazyPromise = (fn, defaultValue) => {
   update.fn = expectFunction(fn);
 
   return state === 'idle'
-    ? [defaultValue, undefined, 'idle', update]
+    ? [initialValue, undefined, 'idle', update]
     : [value, error, state, update];
 };

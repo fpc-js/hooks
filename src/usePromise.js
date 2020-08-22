@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { isFunction, expectPromise } from '@fpc/types';
+import { isFunction, expectPromise, expectArray } from '@fpc/types';
 
 const pending = () => [undefined, undefined, 'pending'];
 
@@ -22,7 +22,7 @@ export const usePromise = (task, deps = isFunction(task) ? [] : [task]) => {
 
     /* eslint-disable-next-line no-return-assign */
     return () => cancelled = true;
-  }, deps);
+  }, expectArray(deps));
 
   return result;
 };
