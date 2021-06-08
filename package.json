@@ -62,20 +62,20 @@
     "@fpc/types": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/plugin-transform-runtime": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/runtime": "^7.11.2",
-    "@fpc/utils": "^1.4.0",
-    "@testing-library/react-hooks": "^3.4.1",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/runtime": "^7.14.0",
+    "@fpc/utils": "^1.4.1",
+    "@testing-library/react-hooks": "^7.0.0",
     "babel-jest-modules": "^0.0.2",
     "coveralls": "^3.1.0",
-    "eslint": "^7.7.0",
-    "eslint-plugin-react": "^7.20.6",
-    "jest": "^26.4.2",
-    "react": "^16.13.1",
-    "react-test-renderer": "^16.13.1"
+    "eslint": "^7.28.0",
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.4",
+    "react": "^17.0.2",
+    "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
     "react": ">=16.8"
