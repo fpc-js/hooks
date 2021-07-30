@@ -1,5 +1,5 @@
-import { usePollingValue } from './usePollingValue';
-import { usePromise } from './usePromise';
+import { usePollingValue } from './usePollingValue.js';
+import { usePromise } from './usePromise.js';
 
 export const usePollingPromise = (fn, initialValue) => {
   const [promise, update] = usePollingValue(fn);

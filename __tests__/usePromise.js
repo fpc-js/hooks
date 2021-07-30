@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { deferred } from '@fpc/utils';
-import { usePromise } from '../src';
+import { usePromise } from '../src/index.js';
 
 /* eslint-disable no-return-assign */
 /* eslint max-statements: ["warn", 15] */

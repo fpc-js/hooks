@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { usePollingValue } from '../src';
+import { usePollingValue } from '../src/index.js';
 
 const uniqid = () => {
   let id = 0;

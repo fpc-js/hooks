@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useArrayState } from '../src';
+import { useArrayState } from '../src/index.js';
 
 /* eslint-disable-next-line max-statements */
 test('useArrayState concat the state with given array at every update', () => {

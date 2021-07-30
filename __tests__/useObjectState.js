@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useObjectState } from '../src';
+import { useObjectState } from '../src/index.js';
 
 /* eslint-disable-next-line max-statements */
 test('useObjectState merges object properties', () => {

@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useLazyPromise } from '../src';
+import { useLazyPromise } from '../src/index.js';
 
 /* global Promise */
 /* eslint-disable no-plusplus, prefer-promise-reject-errors */

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useFetch } from '../src';
+import { useFetch } from '../src/index.js';
 import { fetchMock } from 'fetch';
 
 /* global global, Promise */

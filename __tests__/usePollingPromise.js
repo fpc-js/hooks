@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { usePollingPromise } from '../src';
+import { usePollingPromise } from '../src/index.js';
 
 /* global Promise */
 

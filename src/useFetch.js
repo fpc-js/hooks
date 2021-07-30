@@ -1,4 +1,4 @@
-import { usePollingValue } from './usePollingValue';
+import { usePollingValue } from './usePollingValue.js';
 
 /* global fetch */
 
