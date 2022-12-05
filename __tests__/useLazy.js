@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useLazy } from '../src/index.js';
+import { jest } from '@jest/globals';
 
 const uniqid = () => {
   let id = 0;
