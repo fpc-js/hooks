@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useFetch } from '../src/index.js';
-import { fetchMock } from 'fetch';
+import { fetchMock } from '../__mocks__/fetch.js';
 
 /* global global, Promise */
 /* eslint-disable no-magic-numbers */
